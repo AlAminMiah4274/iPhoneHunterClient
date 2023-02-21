@@ -2,6 +2,7 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './layout/Main';
 import Home from './components/Home';
+import Phone from './components/Phone';
 
 function App() {
   const router = createBrowserRouter([
@@ -11,8 +12,12 @@ function App() {
       children: [
         {
           path: '/',
-          loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
+          loader: () => fetch('http://localhost:5000/phones'),
           element: <Home></Home>
+        },
+        {
+          path: '/phones/:id',
+          element: <Phone></Phone>
         }
       ]
     }
